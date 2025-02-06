@@ -16,7 +16,7 @@ namespace Shop1.Data.DataBase
             {
                 List<Items> items = new List<Items>();
                 MySqlConnection MySqlConection = Connection.MySqlOpen();
-                MySqlDataReader ItemsData = Connection.MySqlQuery("SELECT * FROM pr37-40.items ORDER BY 'Name';", MySqlConection);
+                MySqlDataReader ItemsData = Connection.MySqlQuery("SELECT * FROM `pr37-40`.items ORDER BY 'Name';", MySqlConection);
                 while (ItemsData.Read())
                 {
                     items.Add(new Items()
@@ -32,6 +32,24 @@ namespace Shop1.Data.DataBase
                 MySqlConection.Close();
                 return items;
             }
+        }
+        public int Add(Items Item)
+        {
+            MySqlConnection MySqlConnection = Connection.MySqlOpen();
+            Connection.MySqlQuery($"INSERT INTO `pr37-40`.`items`(`Name`,`Description`,`Img`,`Price`,`IdCategory`) VALUES ('{Item.Name}', '{Item.Description}', '{Item.Img}', '{Item.Price}', '{Item.Category.Id}');", MySqlConnection);
+            MySqlConnection.Close();
+
+            int IdItem = -1;
+            MySqlConnection = Connection.MySqlOpen();
+            MySqlDataReader mySqlDataReaderItem = Connection.MySqlQuery(
+                $"SELECT `Id` FROM `items` WHERE `Name` = '{Item.Name}' AND `Description` = '{Item.Description}' AND `Price` = {Item.Price} AND `IdCategory` = {Item.Category.Id};", MySqlConnection);
+            if (mySqlDataReaderItem.HasRows)
+            {
+                mySqlDataReaderItem.Read();
+                IdItem = mySqlDataReaderItem.GetInt32(0);
+            }
+            MySqlConnection.Close();
+            return IdItem;
         }
     }
 }

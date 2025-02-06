@@ -63,5 +63,10 @@ namespace Shop1.Data.Mocks
                 };
             }
         }
+        public int Add(Items Item)
+        {
+            throw new System.NotImplementedException();
+        }
     }
+
 }
