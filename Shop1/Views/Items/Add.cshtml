@@ -25,7 +25,7 @@
         Категория:
         <br /><select name="idCategory">
             @{
-                foreach (var Category in Model)
+                foreach (Categorys Category in Model)
                 {
                     <option value="@Category.Id">@Category.Name</option>
                 }
