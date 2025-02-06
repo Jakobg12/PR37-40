@@ -7,6 +7,7 @@ namespace Shop1.Controllers
     {
         private IItems IAllItems;
         private ICategorys IAllCategorys;
+        VMItems VMItems = new VMItems();
 
         public ItemsController(IItems IAllItems, ICategorys IAllCategorys)
         {
@@ -14,11 +15,13 @@ namespace Shop1.Controllers
             this.IAllCategorys = IAllCategorys;
         }
 
-        public ActionResult List()
+        public ViewResult List(int id = 0)
         {
             ViewBag.Title = "Страница с предметами";
-            var Items = IAllItems.AllItems;
-            return View(Items);
+            VMItems.Items = IAllItems.AllItems;
+            VMItems.Categorys = IAllCategorys.AllCategorys;
+            VMItems.SelectCategory = id;
+            return View(VMItems);
         }
     }
 }
