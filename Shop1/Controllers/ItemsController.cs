@@ -71,5 +71,21 @@ namespace Shop1.Controllers
             }
             return Json(Startup.BasketItem);
         }
+
+        public ActionResult BasketCount(int idItem = -1, int count = -1)
+        {
+            if (idItem != -1)
+            {
+                if (count == 0)
+                {
+                    Startup.BasketItem.Remove(Startup.BasketItem.Find(x => x.Id == idItem));
+                }
+                else
+                {
+                    Startup.BasketItem.Find(x => x.Id == idItem).Count = count;
+                }
+            }
+            return Json(Startup.BasketItem);
+        }
     }
 }
