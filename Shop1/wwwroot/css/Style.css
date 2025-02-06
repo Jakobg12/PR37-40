@@ -15,19 +15,54 @@
         float: left;
     }
 
-    .header .search {
-        margin-top: 10px;
-        height: 40px;
-        width: 50%;
-        border: none;
-        padding: 0px 10px;
-    }
+redac button {
+    height: 20px;
+    width: 110px;
+    cursor: pointer;
+    text-align: center;
+    background: #ffc300;
+}
 
-    .header .basket {
-        width: 20px;
-        margin: 20px;
-        float: right;
-    }
+.item {
+    box-shadow: @item-box-shadow;
+    margin-bottom: @item-margin-bottom;
+    img
+
+{
+    padding: @item-img-padding;
+    width: @item-img-width;
+    height: 100px;
+    float: left;
+}
+
+data {
+    margin-left: @item-data-margin-left;
+    padding-top: @item-data-padding-top;
+    padding-bottom: @item-data-padding-bottom;
+}
+
+}
+
+.header .search {
+    margin-top: 10px;
+    height: 40px;
+    width: 50%;
+    border: none;
+    padding: 0px 10px;
+}
+
+.header .basket {
+    width: 20px;
+    margin: 20px;
+    float: right;
+}
+
+.delete {
+    box-shadow: 2px 2px 2px #00000038;
+    width: 400px;
+    padding: 10px;
+    margin: 25px auto;
+}
 
 .item {
     box-shadow: 2px 2px 2px #00000038;
@@ -68,6 +103,14 @@ form {
     form select {
         width: -webkit-fill-available;
     }
+
+input button {
+    height: 20px;
+    width: 110px;
+    cursor: pointer;
+    text-align: center;
+    background: #ffc300;
+}
 
 .button {
     height: 20px;

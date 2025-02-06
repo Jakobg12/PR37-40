@@ -8,6 +8,7 @@
         public string Img { get; set; }
         public int Price { get; set; }
         public Categorys Category { get; set; }
+        public Items() { }
         public Items(Items item = null)
         {
             if (item != null)

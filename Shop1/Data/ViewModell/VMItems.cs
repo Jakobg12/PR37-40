@@ -7,6 +7,7 @@ namespace Shop1.Data.ViewModell
     {
         public IEnumerable<Items> Items { get; set; }
         public IEnumerable<Categorys> Categorys { get; set; }
+        public List<ItemsBasket> ItemsBaskets { get; set; }
         public int SelectCategory = 0;
     }
 }
