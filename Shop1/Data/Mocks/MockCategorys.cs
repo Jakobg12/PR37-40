@@ -1,4 +1,5 @@
 ﻿using Shop1.Data.Interfaces;
+using Shop1.Data.Models;
 using System.Collections.Generic;
 
 namespace Shop1.Data.Mocks

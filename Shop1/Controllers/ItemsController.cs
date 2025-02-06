@@ -18,7 +18,7 @@ namespace Shop1.Controllers
         {
             ViewBag.Title = "Страница с предметами";
             var Items = IAllItems.AllItems;
-            return Json(Items);
+            return View(Items);
         }
     }
 }
